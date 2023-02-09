@@ -1,9 +1,6 @@
 package Task1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.stream.IntStream;
 
 public class ArrayRectangles {
     private final Rectangle[] rectangleArray;
@@ -28,12 +25,14 @@ public class ArrayRectangles {
     }
 
     public int numberMinPerimeter() {
-        return Arrays.binarySearch(rectangleArray,Arrays.stream(rectangleArray).filter(rectangle -> !rectangle.іsSquare()).min(Rectangle::compareTo).get());
+        return Arrays.asList(rectangleArray).indexOf(Arrays.stream(rectangleArray).min(Rectangle::compareTo).get());
     }
 
     public int numberMaxArea() {
-        return IntStream.range(0, rectangleArray.length)
-                .filter(number -> !rectangleArray[number].іsSquare()).findAny().getAsInt();
+        return Arrays.asList(rectangleArray).indexOf(
+                Arrays.stream(rectangleArray)
+                        .max((r1, r2) -> Float.compare(r1.getSideA() * r1.getSideB(), r2.getSideA() * r2.getSideB()))
+                        .get());
     }
 
     public long numberSquare() {

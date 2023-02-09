@@ -26,12 +26,12 @@ public class ArrayRectanglesTest {
     @Test
     public void testNumberMinPerimeter() {
         int result = arrayRectangles.numberMinPerimeter();
-        Assert.assertEquals(result, 2);
+        Assert.assertEquals(result, 4);
     }
 
     @Test
     public void testNumberMaxArea() {
-        Assert.assertEquals(1, arrayRectangles.numberMaxArea());
+        Assert.assertEquals(3, arrayRectangles.numberMaxArea());
     }
 
     @Test
