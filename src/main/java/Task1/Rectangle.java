@@ -61,4 +61,5 @@ public class Rectangle implements Comparable<Rectangle> {
     public int compareTo(Rectangle o) {
         return Integer.compare(this.perimeter(), o.perimeter());
     }
+
 }
